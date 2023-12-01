@@ -21,6 +21,14 @@ dependencies {
     implementation("com.google.dagger:dagger-compiler:2.48.1")
     implementation("javax.inject:javax.inject:1")
 
+    // For instrumentation tests
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    annotationProcessor("com.google.dagger:hilt-compiler:2.48.1")
+
+    // For local unit tests
+    testImplementation("com.google.dagger:hilt-android-testing:2.48.1")
+    testAnnotationProcessor("com.google.dagger:hilt-compiler:2.48.1")
+
     // Logging
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
     implementation("org.apache.logging.log4j:log4j-core:2.21.1")
