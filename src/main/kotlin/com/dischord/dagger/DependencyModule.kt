@@ -4,8 +4,11 @@ import aws.sdk.kotlin.services.secretsmanager.SecretsManagerClient
 import aws.smithy.kotlin.runtime.auth.awscredentials.CredentialsProviderChain
 import dagger.Module
 import dagger.Provides
+import dev.kord.core.Kord
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
+import kotlinx.coroutines.runBlocking
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -29,5 +32,13 @@ class DependencyModule {
     @Provides
     fun createAwsCredentialsProvider(): CredentialsProviderChain {
         return CredentialsProviderChain()
+    }
+
+    @Provides
+    @Singleton
+    fun kordClient(
+        @Named("BotToken") botToken: String,
+    ): Kord {
+        return runBlocking { Kord(botToken) }
     }
 }
