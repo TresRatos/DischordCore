@@ -23,6 +23,17 @@ dependencies {
 
     // Logging
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
+    implementation("org.apache.logging.log4j:log4j-core:2.21.1")
+
+    // DiscordKt
+    implementation("me.jakejmattson:DiscordKt:0.23.4")
+
+    // Aws Dependencies
+    // https://mvnrepository.com/artifact/aws.sdk.kotlin/secretsmanager-jvm
+    implementation("aws.sdk.kotlin:secretsmanager-jvm:0.33.1-beta")
+
+    // ENV variable setter
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
