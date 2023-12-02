@@ -7,13 +7,12 @@ import dagger.Provides
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [Config::class])
 class HandlerModule {
     @Provides
     @Singleton
     @Named("PongHandler")
-    fun pongHandler(
-    ): Handler {
+    fun pongHandler(): Handler {
         return PongHandler()
     }
 }

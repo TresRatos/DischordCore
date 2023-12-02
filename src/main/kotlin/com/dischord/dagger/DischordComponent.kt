@@ -1,6 +1,6 @@
 package com.dischord.dagger
 
-import bot.main.KordClient
+import bot.main.DischordBot
 import dagger.Component
 import javax.inject.Singleton
 
@@ -12,5 +12,5 @@ import javax.inject.Singleton
     HandlerModule::class
 ])
 interface DischordComponent {
-    fun getKordClient(): KordClient
+    fun getBot(): DischordBot
 }

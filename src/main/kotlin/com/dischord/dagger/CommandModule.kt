@@ -1,12 +1,12 @@
 package com.dischord.dagger
 
-import bot.main.KordClient
+import bot.main.DischordBot
 import com.dischord.commands.Command
 import com.dischord.commands.Ping
 import com.dischord.handlers.Handler
-import com.dischord.provider.BotTokenProvider
 import dagger.Module
 import dagger.Provides
+import dev.kord.core.Kord
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -14,11 +14,11 @@ import javax.inject.Singleton
 class CommandModule {
     @Provides
     @Singleton
-    fun createKordClient(
-        @Named("BotTokenProvider") botTokenProvider: BotTokenProvider,
-        commands: Set<@JvmSuppressWildcards Command>
-    ): KordClient {
-        return KordClient(botTokenProvider, commands)
+    fun createDischordBot(
+        commands: Set<@JvmSuppressWildcards Command>,
+        kord: Kord
+    ): DischordBot {
+        return DischordBot(commands, kord)
     }
 
     @Provides
