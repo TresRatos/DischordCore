@@ -1,6 +1,7 @@
 package bot.main
 
 import bot.permissions.BotPermissions
+import com.dischord.provider.BotTokenProvider
 import dev.kord.common.annotation.KordPreview
 import dev.kord.gateway.Intents
 import kotlinx.coroutines.flow.toList
@@ -14,12 +15,12 @@ import javax.inject.Named
 
 
 class DischordBot @Inject constructor(
-    @Named("BotToken") private val botToken: String,
+    @Named("BotTokenProvider") private val botTokenProvider: BotTokenProvider,
 ) {
 
     @OptIn(KordPreview::class)
     suspend fun startBot() {
-        bot(botToken) {
+        bot(botTokenProvider.getDiscordBotToken()) {
             prefix {
                 "?"
             }
