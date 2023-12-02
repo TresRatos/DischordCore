@@ -1,14 +1,14 @@
 val kotlin_version: String by project
 
 plugins {
-    kotlin("jvm") version "1.9.20"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.20"
+    kotlin("jvm") version "1.9.21"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.21"
 
     // Annotation Processing
-    id("com.google.devtools.ksp") version "1.9.0-1.0.12"
+    id("com.google.devtools.ksp") version "1.9.21-1.0.15"
 }
 
-group = "com.steamie"
+group = "com.dischord"
 version = "0.0.1"
 
 repositories {
