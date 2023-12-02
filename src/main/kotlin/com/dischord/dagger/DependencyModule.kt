@@ -1,7 +1,6 @@
 package com.dischord.dagger
 
 import aws.sdk.kotlin.services.secretsmanager.SecretsManagerClient
-import aws.smithy.kotlin.runtime.auth.awscredentials.CredentialsProviderChain
 import dagger.Module
 import dagger.Provides
 import dev.kord.core.Kord
@@ -23,15 +22,8 @@ class DependencyModule {
 
     @Provides
     @Singleton
-    fun createSecretsManagerClient(credentialsProviderChain: CredentialsProviderChain): SecretsManagerClient {
-        return SecretsManagerClient {
-            credentialsProvider = credentialsProviderChain
-        }
-    }
-
-    @Provides
-    fun createAwsCredentialsProvider(): CredentialsProviderChain {
-        return CredentialsProviderChain()
+    fun createSecretsManagerClient(): SecretsManagerClient {
+        return SecretsManagerClient {}
     }
 
     @Provides

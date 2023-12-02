@@ -1,18 +1,18 @@
 package com.dischord.dagger
 
+import aws.sdk.kotlin.services.secretsmanager.SecretsManagerClient
+import com.dischord.provider.BotTokenProvider
 import dagger.Module
 import dagger.Provides
-import io.github.cdimascio.dotenv.dotenv
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [DependencyModule::class])
 class Config {
     @Provides
     @Singleton
-    @Named("BotToken")
-    fun botToken(): String {
-        val dotenv = dotenv()
-        return dotenv["BOT_TOKEN"]
+    @Named("BotTokenProvider")
+    fun botTokenProvider(client: SecretsManagerClient): BotTokenProvider {
+        return BotTokenProvider(client)
     }
 }
