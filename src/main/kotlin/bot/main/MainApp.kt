@@ -3,7 +3,9 @@ package bot.main
 import com.dischord.dagger.DaggerDischordComponent
 
 suspend fun main() {
-    val bot = DaggerDischordComponent.create()
+    val dischord = DaggerDischordComponent.create()
 
-    bot.dischord().startBot()
+    val kord = dischord.kordClient().getKordClient()
+
+    kord.login()
 }
