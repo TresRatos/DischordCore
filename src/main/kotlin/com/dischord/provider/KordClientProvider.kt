@@ -1,6 +1,7 @@
 package com.dischord.provider
 
 import dev.kord.core.Kord
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class KordClientProvider @Inject constructor(
@@ -8,9 +9,10 @@ class KordClientProvider @Inject constructor(
 ) {
     lateinit var kord: Kord
 
-    suspend fun getKordClient(): Kord {
+    fun getKordClient(): Kord {
+
         if(!::kord.isInitialized) {
-            kord = Kord(tokenProvider.getDiscordBotToken())
+            runBlocking { kord = Kord(tokenProvider.getDiscordBotToken()) }
         }
         return kord
     }
