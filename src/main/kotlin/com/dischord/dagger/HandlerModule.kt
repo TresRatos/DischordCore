@@ -1,19 +1,19 @@
 package com.dischord.dagger
 
-import com.dischord.activities.ActivityHandler
-import com.dischord.activities.PongHandler
+import com.dischord.handlers.Handler
+import com.dischord.handlers.PongHandler
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class ActivityModule {
+class HandlerModule {
     @Provides
     @Singleton
     @Named("PongHandler")
     fun pongHandler(
-    ): ActivityHandler {
+    ): Handler {
         return PongHandler()
     }
 }
