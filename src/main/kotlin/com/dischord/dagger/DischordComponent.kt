@@ -1,7 +1,6 @@
 package com.dischord.dagger
 
-import com.dischord.commands.Command
-import com.dischord.provider.KordClientProvider
+import bot.main.DischordBot
 import dagger.Component
 import javax.inject.Singleton
 
@@ -10,8 +9,8 @@ import javax.inject.Singleton
     Config::class,
     DependencyModule::class,
     CommandModule::class,
+    HandlerModule::class
 ])
 interface DischordComponent {
-    fun kordClientProvider(): KordClientProvider
-    fun commands(): Set<Command>
+    fun getBot(): DischordBot
 }

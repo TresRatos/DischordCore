@@ -1,18 +1,15 @@
 package com.dischord.commands
 
-import com.dischord.activities.ActivityHandler
-import com.dischord.provider.KordClientProvider
+import com.dischord.handlers.Handler
 import dev.kord.core.behavior.interaction.response.respond
 import dev.kord.core.event.interaction.ChatInputCommandInteractionCreateEvent
 import javax.inject.Inject
 
 class Ping @Inject constructor(
-    override val kordClientProvider: KordClientProvider,
-    private val pongHandler: ActivityHandler
+    private val pongHandler: Handler,
+    override val name: String = "ping",
+    override val description: String = "Ping!"
 ) : Command {
-    override val name = "ping"
-    override val description = "Ping!"
-
     override suspend fun handleInteraction(
         input: ChatInputCommandInteractionCreateEvent
     ) {
